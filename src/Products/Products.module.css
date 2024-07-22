@@ -1,0 +1,9 @@
+.ProductsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px); /* Each column is 200px wide */
+    /* gap: 10px; Adjust as needed */
+    justify-content: space-evenly; /* Distributes extra space evenly */
+    /* width: 100%;    height: auto; */
+
+    gap: 20px;  padding: 10px;  padding-top: 60px; /* for navbar */
+}

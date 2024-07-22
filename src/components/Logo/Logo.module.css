@@ -1,0 +1,9 @@
+.logoContainer {
+    display: flex;      justify-content: center;        align-items: center;
+    
+    width: auto;        height: 100%;
+    
+    font-size: 30px;    background-clip: text;
+    background-image: linear-gradient(90deg, rgb(117, 194, 220), rgb(38, 38, 149), rgb(2, 39, 149));
+    color: transparent;
+}

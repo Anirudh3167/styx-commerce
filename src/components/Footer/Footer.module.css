@@ -1,0 +1,41 @@
+.FooterContainer {
+    display: flex;      justify-content: space-evenly;      align-items: center;
+    flex-direction: row;        flex-wrap: wrap;
+
+    width: 100%;    height: auto;
+
+    padding: 10px;        gap: 20px;
+    background-color: black;
+}
+
+.leftSection {
+    display: flex;      justify-content: flex-start;      align-items: flex-start;
+    flex-direction: column;
+
+    width: 30%;     max-width: 400px;       min-width: 250px;
+    
+    gap: 20px;  padding: 10px 0;
+}
+
+.FooterDescription {
+    color: white;     font-size: 20px;  text-align: left;   text-wrap: wrap;
+}
+
+.rightSection {
+    display: flex;      justify-content: space-evenly;      align-items: center;
+    flex-direction: row;    flex-wrap: wrap;
+
+    width: 60%;     min-width: 250px;
+    gap: 40px;
+}
+
+.FooterLink {
+    color: white;     font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;    padding: 10px 15px;
+    background-color: rgba(80,80,80,0.5);
+}
+
+@media only screen and (max-width: 600px) {
+    .rightSection {flex-direction: column;}
+}

@@ -1,0 +1,27 @@
+.slidesContainer {
+    display: flex;      justify-content: center;      align-items: center;
+    flex-direction: column;
+
+    width: 100%;    min-height: 100vh;
+
+    overflow: auto;     padding-top: 60px; /* For Navbar */
+}
+
+.slides {
+    display: flex;      justify-content: center;      align-items: center;
+    flex-direction: column;     text-align: left;
+
+    width: 100%;    min-height: 100vh;      height: auto;
+
+    padding: 10px;
+    /* background-color: rgba(0,0,0,0.85);      
+    color: white; */
+    background-color: white;
+    color: black;
+}
+
+.IntroText {
+    display: flex;      width: 100%;
+    text-align: left;
+    font-size: 40px;    font-weight: 600;   letter-spacing: 0.1rem;
+}

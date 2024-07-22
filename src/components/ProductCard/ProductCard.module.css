@@ -1,0 +1,86 @@
+.productCard {
+    display: flex;      justify-content: center;      align-items: center;
+    flex-direction: column;    
+    
+    width: 200px;    height: 320px;
+
+    gap: 10px;  padding: 15px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.productImage {
+    display: flex;      justify-content: center;      align-items: center;
+    flex-direction: column;
+
+    width: 180px;    height: 150px;
+    background-color: rgba(80,80,80,0.8);
+
+    border-radius: 10px;    color: rgba(210,210,210,0.8);
+}
+
+.productDetails {
+    display: flex;      justify-content: flex-start;      align-items: flex-start;
+    flex-direction: column;
+    
+    width: 100%;    height: auto;
+    gap: 10px;
+}
+
+.productName {
+    font-size: 18px;    font-weight: 500;
+    height: 28px;
+    overflow: hidden;
+}
+
+.productPrice {
+    font-size: 18px;    font-weight: 400;
+}
+
+.productButtons {
+    display: flex;      justify-content: flex-end;      align-items: center;
+    flex-direction: row;
+    
+    width: 100%;    height: auto;
+    gap: 10px;
+}
+
+.productButton {
+    display: flex;      align-items: center;    justify-content: center;
+    width: auto;    height: 40px;
+    border-radius: 10px;    background-color: rgba(10,10,210,0.8);
+    color: white;
+    padding: 10px 15px;     cursor: pointer;
+}
+
+/* Product Quantity Related */
+
+.productQty {
+    display: flex;      justify-content: flex-start;      align-items: flex-start;
+    flex-direction: column;
+    
+    width: 100%;    height: auto;
+    gap: 10px;
+}
+
+.productQtyInput {
+    display: flex;      justify-content: flex-start;      align-items: center;
+    flex-direction: row;
+    
+    width: auto;    height: auto;
+}
+
+.productQtyInputBox {
+    width: 50px;    height: 25px;   outline: none;
+    border: 1px solid black;
+}
+
+.productQtyBtn {
+    display: flex;      justify-content: center;      align-items: center;
+    width: 25px;    height: 25px;
+    background-color: rgba(210,210,210,0.8);
+    color: black;
+    padding: 10px 15px;     cursor: pointer;
+    border: 1px solid black;
+}
