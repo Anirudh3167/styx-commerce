@@ -7,21 +7,25 @@ export default function ProductCard({productDetails, showQuantity, onUpdateQuant
     const toast = useToast();
     const getCartItems = () => {
         const cartItems = localStorage.getItem("cartItems");
-        if (cartItems && cartItems !== "[]" && cartItems !== "")
+        if (cartItems && cartItems !== "{}" && cartItems !== "")
             return JSON.parse(cartItems);
-        return [];                
+        return {};                
     }
     useEffect(()=>{
         // Check the local storage and update it
         const cartItems = getCartItems();
-        setAddedToCart(cartItems.includes(productDetails.id.toString()));
+        let id = productDetails.id.toString();
+        if (Object.keys(cartItems).includes(id)) {
+            setAddedToCart(true);
+            setQtyValue(cartItems[id]);
+        }
     },[]);
     const addItemToCart = (id) => {
         const cartItems = getCartItems();
-        let idx = cartItems.indexOf(id);
+
         // Add Item to cart. If added then remove
-        if (addedToCart) cartItems.splice(idx, 1);
-        else cartItems.push(id);
+        if (addedToCart) delete cartItems[id];
+        else cartItems[id] = qtyValue;
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
         toast(productDetails.name + ` is ${!addedToCart ? "added" : "removed"} item to cart`);
         setAddedToCart(!addedToCart);
@@ -36,6 +40,9 @@ export default function ProductCard({productDetails, showQuantity, onUpdateQuant
             return;
         }
         setQtyValue(value);
+        const cartItems = getCartItems();
+        cartItems[id] = value;
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
         onUpdateQuantity(id, value);
     }
     return(

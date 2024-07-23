@@ -11,9 +11,9 @@ export default function Cart() {
     const navigate = useNavigate();
     const getCartItems = () => {
         const cartItems = localStorage.getItem("cartItems");
-        if (cartItems && cartItems !== "[]" && cartItems !== "")
+        if (cartItems && cartItems !== "{}" && cartItems !== "")
             return JSON.parse(cartItems);
-        return [];                
+        return {};                
     }
 
     const getOrderUID = () => { // Auto Increment to avoid duplicates
@@ -26,8 +26,20 @@ export default function Cart() {
     let [cartItems, setCartItems] = useState([]);
     // Load items from local storage
     useEffect(() => {
-        const cartItemIds = getCartItems();
-        setCartItems(cartItemIds.map(id => ProductListData().products.find(product => product.id === id)));
+        const cartItemMap = getCartItems();
+        if (!cartItemMap || Object.keys(cartItemMap).length === 0) return ;
+        setCartItems(
+            Object.entries(cartItemMap).map(([id, qty]) => {
+                const product = ProductListData().products.find(product => product.id === id);
+                if (product) {
+                    return {
+                        ...product,                  // Spread existing product properties
+                        quantitySelected: Number(qty) // Set quantitySelected as a number
+                    };
+                }
+                return null; // Return null if the product is not found
+            }).filter(item => item !== null) // Filter out any null values
+        );
     },[])
 
     const updateQty = (id, qty) => {

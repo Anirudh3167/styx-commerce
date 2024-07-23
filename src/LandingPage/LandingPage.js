@@ -12,10 +12,12 @@ export default function LandingPage() {
     return(
         <div className={styles.slidesContainer}>
             {/* Slide 1 (Intro) */}
-            <div className={styles.slides}>
-                <div className={styles.IntroText}>
-                    Welcome to Styx Commerce <br />
-                    The Fastest Growing E-commerce Solution
+            <div className={styles.slides} style={{backgroundColor:"rgba(60,60,60,0.8)",color:"white"}}>
+                <div className={styles.borderLine}>
+                    <div className={styles.IntroText}>
+                        Welcome to Styx Commerce <br />
+                        The Fastest Growing E-commerce Solution
+                    </div>
                 </div>
             </div>
             {/* Slide 2 (Featured Products) */}

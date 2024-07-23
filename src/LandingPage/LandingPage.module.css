@@ -20,8 +20,25 @@
     color: black;
 }
 
+.borderLine {
+    display: flex;      justify-content: center;      align-items: center;
+    flex-direction: column;
+
+    width: calc(100% - 40px);       min-width: 260px;
+    min-height: calc(100vh - 100px);
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: transparent;
+    padding: 20px;
+}
+
 .IntroText {
     display: flex;      width: 100%;
     text-align: left;
     font-size: 40px;    font-weight: 600;   letter-spacing: 0.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .borderLine {padding: 5px;}
 }

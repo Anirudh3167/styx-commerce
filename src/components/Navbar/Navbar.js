@@ -17,7 +17,7 @@ function HamburgerMenu({ navbarOpen, setNavbarOpen }) {
     )
 }
 
-function SearchBar() {
+export function SearchBar() {
     const navigate = useNavigate();
     return (
         <div className={styles.SearchBar}>
@@ -28,7 +28,7 @@ function SearchBar() {
 
 export default function Navbar() {
     const navbarLinks = {"Home": "/",   "Products": "/products",    "Cart": "/cart", "Orders": "/orders"}
-    const [navbarOpen, setNavbarOpen] = useState(true);
+    const [navbarOpen, setNavbarOpen] = useState(false);
 
     // To get the original size after the hamburger menu is closed and squeezed back
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -42,16 +42,18 @@ export default function Navbar() {
         <div className={styles.NavbarContainer}>   {/* Fixed at Top */}
             <HamburgerMenu navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />   {/* small screens only */}
 
-            <Link to={"/"} style={{textDecoration:"none",paddingTop:"5px"}}> <Logo /> </Link>
+            <Link to={"/"} style={{textDecoration:"none",paddingTop:"5px"}} onClick={()=>setNavbarOpen(false)}> <Logo /> </Link>
 
             <div className={styles.NavbarContent} 
                 style={(windowWidth >= 600 || navbarOpen) ? {display: "flex"}: {display: "none"}}>     {/* small screens ? vertical : Horizontal */}
-                <SearchBar />
+                
+                    <SearchBar />
                 
                 <div className={styles.NavbarLinksContainer}
                     style={(windowWidth >= 600 || navbarOpen) ? {display: "flex"}: {display: "none"}}>  {/* small screens ? vertical : Horizontal) */}
                     {Object.keys(navbarLinks).map((key,idx) => 
-                        <Link to={navbarLinks[key]} className={styles.NavbarLinkItem} key={idx}>{key}</Link>
+                        <Link to={navbarLinks[key]} className={styles.NavbarLinkItem} key={idx}
+                        onClick={()=>setNavbarOpen(false)}>{key}</Link>
                     )}
                 </div>
             </div>

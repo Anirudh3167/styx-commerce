@@ -11,7 +11,7 @@ export default function Orders() {
         })
         .filter(order => order !== null);
     return (
-        <div className={styles.CartContainer}>
+        <div className={styles.CartContainer} style={{height:"fit-content"}}>
             {(orders && orders.length > 0) ?
                 orders.map((item, idx) => <OrderCard key={idx} orderDetails={item} />)
             :
