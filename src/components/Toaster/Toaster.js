@@ -8,7 +8,7 @@ const Toaster = React.forwardRef((_, ref) => {
   useEffect(() => {
     if (ref) {
       ref.current = {
-        addToast: (message, duration = 3000) => {
+        addToast: (message, duration = 2000) => {
           const id = new Date().getTime(); // Unique ID for each toast
 
           setToasts((prev) => [...prev, { id, message }]);

@@ -15,12 +15,14 @@ export default function Orders() {
             {(orders && orders.length > 0) ?
                 orders.map((item, idx) => <OrderCard key={idx} orderDetails={item} />)
             :
+            <div style={{display: "flex", alignItems: "center", justifyContent: "center", height: "100vh",flexDirection:"column"}}>
                 <h1>You Have No Orders <br />
                      Start Shopping with our 
                      <Link to="/products" 
                         style={{color:"blue",textDecoration:"none",fontWeight:"bold",padding:"0 10px"}}>
                         Products</Link>
                 </h1>
+            </div>
             } 
         </div>
     )

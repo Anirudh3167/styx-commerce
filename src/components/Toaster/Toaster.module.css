@@ -22,3 +22,7 @@
 .toastTime {
     font-size: 14px;    font-weight: 400;   color: rgba(250,250,250,0.7);
 }
+
+@media only screen and (max-width: 600px) {
+    .toaster {left: 20px; right: 10px;}
+}
